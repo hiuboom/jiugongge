@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .background {
+            position: fixed; /* 将背景设置为固定定位 */
+            top: 0; /* 将背景定位在页面顶部 */
+            left: 0; /* 将背景定位在页面左侧 */
+            width: 100%; /* 让背景宽度充满整个页面 */
+            height: 100%; /* 设置背景的高度为页面的上半部分，你可以根据需要进行调整 */
+            z-index: -100;
+            background-size: cover;
+        }
+        a{
+            display: block;
+            padding-top: 50px;
+        }
+        button{
+            display: block;
+            color: white;
+            background-color: black;
+            margin: 0 auto;
+            margin-bottom: 50px;
+        }
+        button:hover{
+            transform: scale(2);
+            color: black;
+            background-color: white;
+        }
+        #sudokuContainer {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            /* grid-template-rows: repeat(3, minmax(100px, 1fr)); */
+            grid-template-rows: repeat(1, 1fr);
+            /* gap: 10px; */
+            max-width: 90%;
+            margin: 0 auto;
+            width: 460px;
+            height: 460px;
+        }
+        .sudoku {
+            border: 1px solid black;
+            margin: 10px;
+            float: left;
+            margin-right: 10px;
+        }
+        .sudoku:hover {
+            transform: scale(1.1);
+            border: 1px solid #f00;
+        }
+        .sudoku td {
+            color: white;
+            width: 30px;
+            height: 30px;
+            border: 1px solid grey;
+            text-align: center;
+            font-size: 20px;
+            padding: 0; /* 添加padding属性 */
+            box-sizing: border-box; /* 添加box-sizing属性 */
+        }
+        
+        .input-cell {
+            background-color: transparent;
+            width: 100%;
+            height: 100%;
+            border: none;
+            text-align: center;
+            font-size: 20px;
+            padding: 0; /* 添加padding属性 */
+            box-sizing: border-box; /* 添加box-sizing属性 */
+            color: red; /* 设置文字颜色为灰色 */
+        }
+    </style>
+</head>
+<body>
+    <img src="./background.jpg" alt="" class="background">
+    <a href="主页.html">
+        <button>返回</button>
+    </a>
+    <button id="generateButton">生成数独</button>
+    <div id="sudokuContainer"></div>
+
+    <script>
+
+        document.getElementById('generateButton').addEventListener('click', function() {
+            fetch('http://127.0.0.1:5000/generate_sudokus1')
+                .then(response => response.json())
+                .then(data => {
+                    var sudokuContainer = document.getElementById('sudokuContainer');
+                    sudokuContainer.innerHTML = '';
+        
+                    data.sudokus.forEach(function(sudokuData) {
+                        var sudokuHtml = '<table class="sudoku">';
+                        
+                        sudokuData.sudoku.forEach(function(row, i) {
+                            sudokuHtml += '<tr>';
+                            row.forEach(function(cell, j) {
+                                sudokuHtml += '<td class="cell">' + 
+                                    (cell !== "" ? cell : `<input type="text" class="input-cell" data-row="${i}" data-col="${j}">`) + 
+                                    '</td>';
+                            });
+                            sudokuHtml += '</tr>';
+                        });
+        
+                        sudokuHtml += '</table>';
+                        sudokuContainer.innerHTML += sudokuHtml;
+                    });
+                });
+        });
+             
+        document.addEventListener('input', function(event) {
+            if (event.target.classList.contains('input-cell')) {
+                var row = event.target.dataset.row;
+                var col = event.target.dataset.col;
+                var value = event.target.value;
+
+                // 在这里将用户输入的数字发送到后端进行处理
+                // 你可以使用fetch发送一个POST请求，将row、col和value作为数据发送给后端
+            }
+        });
+    </script>
+</body>
+</html>

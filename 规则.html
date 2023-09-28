@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .background {
+            position: fixed; /* 将背景设置为固定定位 */
+            top: 0; /* 将背景定位在页面顶部 */
+            left: 0; /* 将背景定位在页面左侧 */
+            width: 100%; /* 让背景宽度充满整个页面 */
+            height: 100%; /* 设置背景的高度为页面的上半部分，你可以根据需要进行调整 */
+            z-index: -1;
+            background-size: cover;
+        }
+        a{
+            display: block;
+            padding-top: 50px;
+        }
+        button{
+            display: block;
+            color: white;
+            background-color: black;
+            margin: 0 auto;
+            margin-bottom: 50px;
+        }
+        button:hover{
+            transform: scale(2);
+            color: black;
+            background-color: white;
+        }
+        div{
+            color: white;
+            font-size: 30px;
+            margin-bottom: 50px;
+        }
+        .diyihang{
+            margin-left: 2em;
+        }
+        .guize{
+            margin-left: 15em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <img src="./background.jpg" alt="" class="background">
+    <a href="主页.html">
+        <button>返回</button>
+    </a>
+    <div class="diyihang">数独是一种逻辑解谜游戏，通常由一个 9x9 的网格组成，被分成了 9 个 3x3 的小方块。游戏的目标是在每一行、每一列以及每个小方块中填入数字 1 到 9，使得整个网格满足以下规则：</div>
+    <div class="guize">1、每行包含 1 到 9 的所有数字，不重复。</div>
+    <div class="guize">2、每列包含 1 到 9 的所有数字，不重复。</div>
+    <div class="guize">3、每个小 3x3 方块包含 1 到 9 的所有数字，不重复。</div>
+    <div class="diyihang">简而言之，每一行、每一列、每个小方块内的数字不能有重复，且数字的取值范围是 1 到 9。</div>
+</body>
+</html>
+
+<!-- 
+数独是一种逻辑解谜游戏，通常由一个 9x9 的网格组成，被分成了 9 个 3x3 的小方块。游戏的目标是在每一行、每一列以及每个小方块中填入数字 1 到 9，使得整个网格满足以下规则：
+
+每行包含 1 到 9 的所有数字，不重复。
+每列包含 1 到 9 的所有数字，不重复。
+每个小 3x3 方块包含 1 到 9 的所有数字，不重复。
+简而言之，每一行、每一列、每个小方块内的数字不能有重复，且数字的取值范围是 1 到 9。 -->
