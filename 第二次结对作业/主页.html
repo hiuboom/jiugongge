@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .background {
+            position: fixed; /* 将背景设置为固定定位 */
+            top: 0; /* 将背景定位在页面顶部 */
+            left: 0; /* 将背景定位在页面左侧 */
+            width: 100%; /* 让背景宽度充满整个页面 */
+            height: 100%; /* 设置背景的高度为页面的上半部分，你可以根据需要进行调整 */
+            z-index: -100;
+            background-size: cover;
+        }
+        .shudu{
+            text-align: center;
+            margin-top: 50px;
+            margin-left: 500px;
+            margin-right: 500px;
+            margin-bottom: 150px;
+            font-size: 100px;
+        }
+        .shudu:hover{
+            transform: scale(1.1);
+        }
+        select {
+            margin: 0 auto;
+            display: block;
+            background-color: transparent;
+            width: 200px;
+            height: 50px;
+            border: none; 
+            outline: none; 
+            color: black;
+            font-family: 楷体, KaiTi, "楷体_GB2312", serif; 
+            font-size: 32px;
+        }
+        select option {
+            /* font-size: 16px;
+            padding: 10px;  */
+            border: none; 
+            outline: none; 
+            font-family: 楷体, KaiTi, "楷体_GB2312", serif; 
+            font-size: 32px;
+        }
+        button{
+            color: black;
+            background-color: transparent;
+            margin: 0 auto;
+            display: block;
+            width: 200px;
+            height: 50px;
+            border: none; 
+            outline: none; 
+            font-family: 楷体, KaiTi, "楷体_GB2312", serif; 
+            font-size: 32px;
+        }
+        button:hover{
+            transform: scale(1.2);
+            /* color: white;
+            background-color: black; */
+        }
+    </style>
+</head>
+<body>
+    <img src="./background.jpg" alt="" class="background">
+    <div class="shudu">九宫格数独</div>
+    <br>
+    <select class="form-control" onchange="location.href = this.options[this.selectedIndex].value" autocomplete="off">
+        <option selected="">--请选择--</option>
+        <option value="1.html">先上点小菜</option>
+        <option value="2.html">直接来超大杯</option>
+    </select>
+    <br><br><br><br><br>
+    <a href="规则.html">
+        <button>游戏规则</button>
+    </a>
+
+</body>
+</html>
